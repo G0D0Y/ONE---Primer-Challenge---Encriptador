@@ -1,0 +1,245 @@
+body{
+    font-family: 'Inter', sans-serif;
+    background: #F3F5FC;
+}
+
+.logo{
+    width: 120px;
+    margin: 40px 0 0 40px;
+}
+
+.logo h1{
+    text-align: center;
+}
+.principal {
+    width: 100%;
+    display: inline-block;
+}
+
+.lado-izquierdo{
+    float: left;
+    width: 60%;
+}
+
+.lado-derecho{
+    float: left;
+    width: 40%;
+}
+
+.text-input{
+    margin: 80px 0 0 20%;
+}
+
+.input{
+    width: 100%;
+    height: 600px;
+    font-family: inherit;
+    font-size: 32px;
+    background: none;
+    border: none;
+    resize: none;
+}
+
+.input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color:darkblue;
+    opacity: 1;
+}
+
+.advertencia{
+    color: gray;
+    margin: 35px 0 0 12%;
+    font-size: 12;
+    opacity: 0.8;
+}
+
+.botones{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.boton-encriptar, .boton-desencriptar{
+    width: 77%;
+    margin-left: 23%;
+}
+
+.encriptar, .desencriptar{
+    font-size: 16px;
+    text-align: center;
+    border-color: darkblue;
+    border-radius: 24px;
+    width: 100%;
+    margin: 0 auto 16px auto;
+    padding: 25px 0;
+}
+
+.encriptar:hover, .desencriptar:hover{
+    background: yellow;
+}
+
+.encriptar:active, .desencriptar:active{
+    background: orange;
+    
+}
+
+.encriptar{
+    background: darkblue;
+    color: white;
+}
+
+.desencriptar{
+    background: #D8DFE8;
+    color: darkblue;
+}
+
+.text-output{
+    float: right;
+    border-radius: 32px;
+    width: 400px;
+    height: 944px;
+    background-color: white;
+    margin: -48px 40px 0 0;
+}
+
+#output{
+    color: gray;
+    font-size: 24px;
+    margin: 25px;
+}
+
+.munheco{
+    display: block;
+    width: 336px;
+    margin: 243px auto 0 auto;
+}
+
+.mensaje-principal{
+    width: 336px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 25px auto 25px auto;
+}
+
+.mensaje-secundario{
+    width: 336px;
+    font-size: 16px;
+    text-align: center;
+    margin: 5px auto 5px auto;
+}
+
+
+
+
+/*Configuracion CSS para tablet*/
+@media screen and (max-width: 1135px){
+    
+    .logo{
+        margin-left: 10px;
+    }
+
+    .principal{
+        display: block;
+    }
+
+    .lado-derecho, .lado-izquierdo{
+        float: none;
+        width: 100%;
+    }
+
+    .input{
+        height: 550px;
+    }
+
+    .text-input{
+        margin-top: 150px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .advertencia{
+        margin: 15px 0 0 5%;
+    }
+
+    .boton-encriptar, .boton-desencriptar{
+        width: 85%;
+    }
+    
+    .boton-encriptar{
+        margin: 0 0 0 10%;
+    }
+
+    .boton-desencriptar{
+        margin: 0 10% 0 0;
+    }
+
+    .text-output{
+        float: none;
+        width: auto;
+        box-sizing: border-box;
+        height: auto;
+        margin: 40px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+   
+    .munheco{
+        display: none;
+    }
+
+    .mensaje-principal, .mensaje-secundario{
+        width: auto;
+        margin: 10px 0 10px 0;
+    }
+}
+
+
+
+/*Configuracion CSS para celular*/
+@media screen and (max-width: 510px){
+    
+    .logo{
+        margin-top: 24px;
+        margin-left: 0;
+    }
+   
+    .text-input{
+        margin-top: 80px;
+    }
+
+    .input{
+        height: 340px;
+    }
+
+    .advertencia{
+        margin-top: 15px;
+    }
+
+    .botones{
+        display: block;
+    }
+
+    .boton-desencriptar, .boton-encriptar{
+        width: auto;
+        margin: 0 5% 0 5%;
+    }
+
+    .text-output{
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-top: 1px;
+    }
+
+    .mensaje-principal{
+        margin: 0 50px 0 50px;
+    }
+
+    .mensaje-secundario{
+        margin: 30px 50px 0 50px;
+    }
+}

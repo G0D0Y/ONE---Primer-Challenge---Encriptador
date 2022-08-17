@@ -1,15 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title> Cursos de Alura</title>
+
+<html lang="es">
+    
+    <head>    
+        <meta charset = "UTF-8">
+        <title>Encriptador</title>
+        <link rel="stylesheet" href = "reset.css">
+        <link rel="stylesheet" href = "style-encriptador.css">
     </head>
+   
     <body>
-        <ul>
-            <li>Vagrant</li>
-            <li>Docker</li>
-            <li>Ansible</li>
-            <li>Integración Continua: Madurez y produtividad</li>
-        </ul>
+        <header>
+            <div class="logo">
+                <h1><img src="imagenes/Vector.png"></h1>
+            </div>
+        </header>
+        <main>
+            <div class="principal">
+                <div class="lado-izquierdo">
+                    <div class="text-input">
+                        <textarea id="texto-fuente" name="texto-fuente" class="input" placeholder="Ingrese el texto aqui"></textarea>
+                    </div>
+                    <p class="advertencia"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                      </svg> Solo letras minúsculas y sin acento.</p>
+                    <div class="botones">
+                        <div class= "boton-encriptar"> 
+                            <input type="button" value="Encriptar" class="encriptar" id="botencriptar">
+                        </div>
+                        <div class="boton-desencriptar">
+                            <input type="button" value="Desencriptar" class="desencriptar" id="botdesencriptar">
+                        </div>
+                    </div>            
+                </div> 
+                <div class="lado-derecho">
+                    <div class="text-output">
+                        <p id="output"></p>
+                        <img id= "munheco" class="munheco" src="imagenes/Muñeco.png">
+                        <p id ="mensaje1" class="mensaje-principal">Ningún mensaje fue encontrado</p>
+                        <p  id ="mensaje2" class="mensaje-secundario">Ingresar el texto que desees encriptar o desencriptar.</p>
+                        <input type="button" value="Copiar" class="copiar" id="botoncopiar" style="visibility: hidden;">
+                    </div>
+                </div>
+                <p>Encriptador desarrollado por Oscar Navarro</p>
+            </div>
+        </main>
     </body>
 </html>
+
+<script>
+    
+    var input;
+    var textoParaEncriptar;
+    var textoEncriptado;
+    const vocales = ["e","i","a","o","u"];
+    const llaves= ["enter","imes","ai","ober","ufat"];
+
+    function ocultarElementos(){
+        document.getElementById("munheco").style.visibility='hidden';
+        document.getElementById("mensaje1").style.visibility='hidden';
+        document.getElementById("mensaje2").style.visibility='hidden';
+        document.getElementById("botoncopiar").style.visibility='visible';
+    }
+   
+    function getValue(){
+        input = document.getElementById("texto-fuente").value;
+        textoParaEncriptar = input.split("");
+    }
+    
+    function encriptarTexto(vocal,i){
+        var posicion = input.indexOf(vocal);
+        while(posicion != -1){
+            textoParaEncriptar.splice(posicion,1,llaves[i]);
+            input=textoParaEncriptar.toString().replace(/,/g,"");
+            textoParaEncriptar = input.split("");
+            posicion = input.indexOf(vocal,posicion+llaves[i].length); 
+        }
+    }
+
+    function desencriptarTexto(llave){
+        var posicion = input.lastIndexOf(llave);
+        while(posicion != -1){
+            textoParaEncriptar.splice(posicion+1,llave.length - 1);
+            input=textoParaEncriptar.toString().replace(/,/g,"");
+            posicion = input.lastIndexOf(llave); 
+        }
+    }
+
+    function encriptar(){
+        getValue();
+        if(input){
+        ocultarElementos();
+        for(var i=0;i<5;i++){
+            encriptarTexto(vocales[i],i);
+        }
+        textoEncriptado=textoParaEncriptar.toString().replace(/,/g,"");
+        document.getElementById("output").innerHTML = textoEncriptado;
+        }
+    }
+
+    function desencriptar(){
+        getValue();
+        if(input){
+        ocultarElementos();
+        
+        for(var i=0;i<5;i++){
+            desencriptarTexto(llaves[i]);
+        }
+
+        textoEncriptado=textoParaEncriptar.toString().replace(/,/g,"");
+        document.getElementById("output").innerHTML = textoEncriptado;
+        }
+    }
+    
+    function copiarPortapapeles(){
+        navigator.clipboard.writeText(textoEncriptado);
+        alert("Copiado al portapapeles");
+    }
+
+    document.getElementById("botencriptar").addEventListener("click", encriptar);
+    document.getElementById("botdesencriptar").addEventListener("click", desencriptar);
+    document.getElementById("botoncopiar").addEventListener("click", copiarPortapapeles);
+    
+</script>
