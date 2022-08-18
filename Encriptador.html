@@ -21,7 +21,7 @@
                     <div class="text-input">
                         <textarea id="texto-fuente" name="texto-fuente" class="input" placeholder="Ingrese el texto aqui"></textarea>
                     </div>
-                    <p class="advertencia"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                    <p class="advertencia"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
                       </svg> Solo letras minúsculas y sin acento.</p>
                     <div class="botones">
@@ -35,15 +35,17 @@
                 </div> 
                 <div class="lado-derecho">
                     <div class="text-output">
-                        <p id="output"></p>
+                        <p id="output" style="display: none;"></p>
                         <img id= "munheco" class="munheco" src="imagenes/Muñeco.png">
                         <p id ="mensaje1" class="mensaje-principal">Ningún mensaje fue encontrado</p>
                         <p  id ="mensaje2" class="mensaje-secundario">Ingresar el texto que desees encriptar o desencriptar.</p>
-                        <input type="button" value="Copiar" class="copiar" id="botoncopiar" style="visibility: hidden;">
+                        <input type="button" value="Copiar" class="copiar" id="botoncopiar" style="display: none;">
                     </div>
+                    
                 </div>
-                <p>Encriptador desarrollado por Oscar Navarro</p>
+                
             </div>
+            <p>Encriptador desarrollado por Oscar Navarro</p>
         </main>
     </body>
 </html>
@@ -57,10 +59,11 @@
     const llaves= ["enter","imes","ai","ober","ufat"];
 
     function ocultarElementos(){
-        document.getElementById("munheco").style.visibility='hidden';
-        document.getElementById("mensaje1").style.visibility='hidden';
-        document.getElementById("mensaje2").style.visibility='hidden';
-        document.getElementById("botoncopiar").style.visibility='visible';
+        document.getElementById("munheco").style.display="none";
+        document.getElementById("mensaje1").style.display="none";
+        document.getElementById("mensaje2").style.display="none";
+        document.getElementById("botoncopiar").style.display="initial";
+        document.getElementById("output").style.display="block";
     }
    
     function getValue(){
