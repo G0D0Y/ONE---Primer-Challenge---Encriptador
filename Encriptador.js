@@ -1,56 +1,4 @@
-<!DOCTYPE html>
-
-<html lang="es">
-    
-    <head>    
-        <meta charset = "UTF-8">
-        <title>Encriptador</title>
-        <link rel="stylesheet" href = "reset.css">
-        <link rel="stylesheet" href = "style-encriptador.css">
-    </head>
-   
-    <body>
-        <header>
-            <div class="logo">
-                <h1><img src="imagenes/Vector.png"></h1>
-            </div>
-        </header>
-        <main>
-            <div class="principal">
-                <div class="lado-izquierdo">
-                    <div class="text-input">
-                        <textarea id="texto-fuente" name="texto-fuente" class="input" placeholder="Ingrese el texto aqui"></textarea>
-                    </div>
-                    <p class="advertencia"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                      </svg> Solo letras minúsculas y sin acento.</p>
-                    <div class="botones">
-                        <div class= "boton-encriptar"> 
-                            <input type="button" value="Encriptar" class="encriptar" id="botencriptar">
-                        </div>
-                        <div class="boton-desencriptar">
-                            <input type="button" value="Desencriptar" class="desencriptar" id="botdesencriptar">
-                        </div>
-                    </div>            
-                </div> 
-                <div class="lado-derecho">
-                    <div class="text-output">
-                        <p id="output" style="display: none;"></p>
-                        <img id= "munheco" class="munheco" src="imagenes/Muñeco.png">
-                        <p id ="mensaje1" class="mensaje-principal">Ningún mensaje fue encontrado</p>
-                        <p  id ="mensaje2" class="mensaje-secundario">Ingresar el texto que desees encriptar o desencriptar.</p>
-                        <input type="button" value="Copiar" class="copiar" id="botoncopiar" style="display: none;">
-                    </div>
-                    
-                </div>
-                
-            </div>
-            <p>Encriptador desarrollado por Oscar Navarro</p>
-        </main>
-    </body>
-</html>
-
-<!-- <script>
+<script>
     
     var input;
     var textoParaEncriptar;
@@ -125,4 +73,4 @@
     document.getElementById("botdesencriptar").addEventListener("click", desencriptar);
     document.getElementById("botoncopiar").addEventListener("click", copiarPortapapeles);
     
-</script> -->
+</script>
