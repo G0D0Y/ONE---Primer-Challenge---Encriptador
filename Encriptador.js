@@ -1,4 +1,3 @@
-<script>
     
     var input;
     var textoParaEncriptar;
@@ -73,4 +72,3 @@
     document.getElementById("botdesencriptar").addEventListener("click", desencriptar);
     document.getElementById("botoncopiar").addEventListener("click", copiarPortapapeles);
     
-</script>
